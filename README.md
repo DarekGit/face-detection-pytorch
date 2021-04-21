@@ -1,6 +1,10 @@
 ## Face Detection
 PyTorch implementations of various face detection algorithms (last updated on 2019-08-03).
 
+## DSFD VGG reached much beter results on WIDERFACE then detectron2 or even automl BiFPN - AP50: 75% and mAP: 40%
+quick start with [colab notebook](DSFDplus_multi_infer_simple.ipynb).
+
+
 ### Usage Example
 ```python
 import cv2, random
