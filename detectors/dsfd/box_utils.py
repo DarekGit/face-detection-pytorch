@@ -2,6 +2,7 @@ import numpy as np
 from itertools import product as product
 import torch
 from torch.autograd import Function
+import torch.nn as nn
 
 
 def nms_(dets, thresh):
@@ -126,11 +127,12 @@ def nms(boxes, scores, overlap=0.5, top_k=200):
     return keep, count
 
 
-class Detect(Function):
+class Detect(nn.Module):
 
     def __init__(self, num_classes=2,
                     top_k=750, nms_thresh=0.3, conf_thresh=0.05,
                     variance=[0.1, 0.2], nms_top_k=5000):
+        super(Detect, self).__init__()
         
         self.num_classes = num_classes
         self.top_k = top_k
